@@ -6,7 +6,7 @@ using UnityEngine;
 //downloads the latest vannilla KAR JP Gekko Codes
 public class DownloadJPKARCodes : MonoBehaviour
 {
-
+	
 	//gets the latest content
 	public void GetLatest()
 	{
@@ -14,7 +14,7 @@ public class DownloadJPKARCodes : MonoBehaviour
 		try
 		{
 			string installDir = "Content";
-			string toolsDir =  KWStructure.GenerateKWStructure_Directory_Tools(installDir) + "/Windows/";
+			string fileExt = ".ini";
 
 			//attempt to load KWQI data, if not found use a baked in URL
 			string KWQIFilePath = "KWQI/KAR_JP_GekkoCodes.KWQI";
@@ -22,7 +22,7 @@ public class DownloadJPKARCodes : MonoBehaviour
 			if(!File.Exists(KWQIFilePath))
 			{
 				content.internalName = "GKYP01";
-				content.ContentDownloadURL_Windows = "https://github.com/SeanMott/KARphin_Modern/releases/download/gekko/GKYP01.ini";
+				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KARphin_Modern/releases/download/gekko/GKYP01{fileExt}";
 				KWQI.WriteKWQI(KWStructure.GenerateKWStructure_Directory_KWQI(installDir), content.internalName, content);
 			}
 			else
@@ -36,15 +36,18 @@ public class DownloadJPKARCodes : MonoBehaviour
 
 			//downloads
 			WebClient w = new WebClient();
-			w.DownloadFile(content.ContentDownloadURL_Windows, gekkoCodeDstFolder + "/" + content.internalName + ".ini");
+			w.DownloadFile(content.ContentDownloadURL_Windows, $"{gekkoCodeDstFolder}\\{content.internalName}{fileExt}");
 			
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
 			MainUI.instance.headerText.text = "<color=green>Download Complete!";
 		}
 		catch (Exception e)
 		{
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[4]);
 			MainUI.instance.headerText.text = "<color=red>Download Failed!";
-			MainUI.instance.errorText.text = e.ToString();
 			Debug.LogError(e);
+			MessageUI.MessageBox(IntPtr.Zero, e.ToString(), "Download Failed!", 0);
 		}
 	}
 }

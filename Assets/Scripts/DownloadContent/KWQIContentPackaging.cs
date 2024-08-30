@@ -8,7 +8,6 @@ https://github.com/SeanMott/KAR-KWQI
 */
 
 using System.IO;
-using UnityEngine;
 
 //defines a main class for handling the package
 public class KWQIPackaging
@@ -56,61 +55,25 @@ public class KWQIPackaging
 	//unpacks a directory archive on Windows for KWQI
 	//the first layer is a brotile
 	//the second is a Tar
-	static public bool UnpackArchive_Windows(string _archivePackageDir, string _archivePackageName, string _outputDir,
-	bool shouldDeletePackedROMFileAfterUnpacking, string _brotilProgFilepath)
+	public static void UnpackArchive_Windows(string archivePackageDir, string archivePackageName, bool shouldDeletePackedROMFileAfterUnpacking)
 	{
-		string brotilPackageFP = $"{_archivePackageDir}\\{_archivePackageName}.br";
-		string tarPackageFP = $"{_archivePackageDir}\\{_archivePackageName}.tar";
+		string tarPackageFP = $"{archivePackageDir}\\{archivePackageName}.tar.gz";
+		string contentFP = $"{System.Environment.CurrentDirectory}\\Content";
 
-		//decompress the brotile
 		var hp = new System.Diagnostics.Process();
-		hp.StartInfo.UseShellExecute = true;
-		hp.StartInfo.FileName = "U:\\RiskiVR\\Documents\\Unity Projects\\KAR Util\\Content\\Tools\\Windows\\brotli.exe";
-		hp.StartInfo.Arguments = $"--decompress -o {tarPackageFP} {brotilPackageFP}";
-		hp.StartInfo.WorkingDirectory = _brotilProgFilepath;
-		hp.Start();
-		hp.WaitForExit();
-
-		//extract the Tar ball
-		hp = new System.Diagnostics.Process();
 		hp.StartInfo = new System.Diagnostics.ProcessStartInfo
-        {
-            FileName = "tar",
-            Arguments = $"-xvf {tarPackageFP} -C {_outputDir}",
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            UseShellExecute = true,
-            CreateNoWindow = true
-        };
+		{
+			FileName = "tar",
+			Arguments = $"-xvf {tarPackageFP}",
+			RedirectStandardOutput = false,
+			RedirectStandardError = false,
+			UseShellExecute = true,
+			CreateNoWindow = false,
+			WorkingDirectory = contentFP
+		};
 		hp.Start();
 		hp.WaitForExit();
 		
-		//clean up the brotile and the tar ball
-		if (shouldDeletePackedROMFileAfterUnpacking)
-		{
-			if(File.Exists(brotilPackageFP)) File.Delete(brotilPackageFP);
-			if(File.Exists(tarPackageFP)) File.Delete(tarPackageFP);
-		}
-
-		return true;
-	}
-
-	//downloads gekko codes on Windows
-	static public bool DownloadContent_GekkoCodes_Windows(out System.Diagnostics.Process p, string _dumaProgFilepath,
-	 string displayName, string URL, string outputDir)
-	{
-		string workingDir = "\"" + outputDir + "\"";
-		string codeFP = "\"" + outputDir + "/" + displayName + ".ini\"";
-
-		string dumaProgFilepath = "\"" + _dumaProgFilepath + "\"";
-
-		p = new System.Diagnostics.Process();
-		p.StartInfo.UseShellExecute = true;
-		p.StartInfo.FileName = dumaProgFilepath;
-		p.StartInfo.Arguments = URL + " -O " + codeFP;
-		p.StartInfo.WorkingDirectory = workingDir;
-		p.Start();
-
-		return true;
+		if (shouldDeletePackedROMFileAfterUnpacking && File.Exists(tarPackageFP)) File.Delete(tarPackageFP);
 	}
 }

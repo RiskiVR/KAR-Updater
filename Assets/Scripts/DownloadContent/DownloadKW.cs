@@ -13,7 +13,7 @@ public class DownloadKW : MonoBehaviour
 		try
 		{
 			string installDir = "Content";
-			string toolsDir =  KWStructure.GenerateKWStructure_Directory_Tools(installDir) + "/Windows/";
+			string fileExt = ".tar.gz";
 
 			//attempt to load KWQI data, if not found use a baked in URL
 			string KWQIFilePath = "KWQI/KARWorkshop.KWQI";
@@ -21,7 +21,7 @@ public class DownloadKW : MonoBehaviour
 			if(!File.Exists(KWQIFilePath))
 			{
 				content.internalName = "KARWorkshop";
-				content.ContentDownloadURL_Windows = "https://github.com/SeanMott/KAR-Workshop/releases/download/KWQI-Data-Dev/KARWorkshop.br";
+				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KAR-Workshop/releases/download/KWQI-Data-Dev/KARWorkshop{fileExt}";
 				KWQI.WriteKWQI(KWStructure.GenerateKWStructure_Directory_KWQI(installDir), content.internalName, content);
 			}
 			else
@@ -31,10 +31,10 @@ public class DownloadKW : MonoBehaviour
 
 			//downloads
 			WebClient w = new WebClient();
-			w.DownloadFile(content.ContentDownloadURL_Windows, installDir + "/" + content.internalName + ".br");
+			w.DownloadFile(content.ContentDownloadURL_Windows, $"{installDir}\\{content.internalName}{fileExt}");
 
 			//extracts
-			KWQIPackaging.UnpackArchive_Windows(installDir, content.internalName, installDir, true, toolsDir + "brotli.exe");
+			KWQIPackaging.UnpackArchive_Windows(installDir, content.internalName, true);
 
 			//installs the new content into the netplay client directory
 			KWQIPackaging.CopyAllDirContents(installDir + "/UncompressedPackages/" + content.internalName,
@@ -42,13 +42,16 @@ public class DownloadKW : MonoBehaviour
 			if(Directory.Exists(installDir + "/UncompressedPackages"))
 				Directory.Delete(installDir + "/UncompressedPackages", true);
 			
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
 			MainUI.instance.headerText.text = "<color=green>Download Complete!";
 		}
 		catch (Exception e)
 		{
+			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[4]);
 			MainUI.instance.headerText.text = "<color=red>Download Failed!";
-			MainUI.instance.errorText.text = e.ToString();
 			Debug.LogError(e);
+			MessageUI.MessageBox(IntPtr.Zero, e.ToString(), "Download Failed!", 0);
 		}
 	}
 }

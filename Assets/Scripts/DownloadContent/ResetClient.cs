@@ -9,7 +9,6 @@ public class ResetClient : MonoBehaviour
 	public void GetLatest()
 	{
 		string installDir = "Content";
-		string toolsDir =  KWStructure.GenerateKWStructure_Directory_Tools(installDir) + "/Windows/";
 
         //nukes the whole User folder
         if(Directory.Exists(KWStructure.GenerateKWStructure_Directory_NetplayClients(installDir)))
@@ -35,7 +34,7 @@ public class ResetClient : MonoBehaviour
 		w.DownloadFile(content.ContentDownloadURL_Windows, installDir + "/" + content.internalName);
 
 		//extracts
-		KWQIPackaging.UnpackArchive_Windows(installDir, content.internalName, installDir, true, toolsDir + "brotli.exe");
+		KWQIPackaging.UnpackArchive_Windows(installDir, content.internalName, true);
 
 		//installs the new content into the netplay client directory
 		KWQIPackaging.CopyAllDirContents(installDir + "/UncompressedPackages/" + content.internalName,
@@ -46,8 +45,8 @@ public class ResetClient : MonoBehaviour
 			Directory.Delete(installDir + "/UncompressedPackages", true);
 
         //gets the Gekko Codes
-        DownloadBSCodes.GetBSCodes(installDir, toolsDir);
-        DownloadHPCodes.GetHPCodes(installDir, toolsDir);
+        DownloadBSCodes.GetBSCodes(installDir);
+        DownloadHPCodes.GetHPCodes(installDir);
 
         //generate Dolphin config
         string config = "[General]\nShowLag = False\nShowFrameCount = True\nISOPaths = 1\nRecursiveISOPaths = True\nISOPath0 = " +
@@ -62,7 +61,7 @@ public class ResetClient : MonoBehaviour
 			file.Close();
 
         //gets KARphin
-        DownloadKARphin.GetKARphin(installDir, toolsDir);
+        DownloadKARphin.GetKARphin(installDir);
         DownloadKARphin.RunKARphin(installDir);
 	}
 }
