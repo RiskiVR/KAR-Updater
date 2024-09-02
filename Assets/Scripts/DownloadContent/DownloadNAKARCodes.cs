@@ -12,8 +12,14 @@ public class DownloadNAKARCodes : MonoBehaviour
 		MainUI.instance.headerText.text = "Downloading North American Gekko Codes...";
 		try
 		{
-			string installDir = "Content";
-			string fileExt = ".ini";
+#if UNITY_EDITOR
+            DirectoryInfo installDir = new DirectoryInfo("C:/Users/rafal/Desktop/Boot test/KARNetplay"); //for editor
+#else
+        DirectoryInfo installDir = new DirectoryInfo(Environment.CurrentDirectory); //for standalone release
+
+#endif
+
+            string fileExt = ".ini";
 
 			//attempt to load KWQI data, if not found use a baked in URL
 			string KWQIFilePath = "KWQI/KAR_NA_GekkoCodes.KWQI";
@@ -29,15 +35,11 @@ public class DownloadNAKARCodes : MonoBehaviour
 				content = KWQI.LoadKWQI(KWQIFilePath);
 			}
 
-			//generates the directories as needed
-			string clientsFolder = KWStructure.GenerateKWStructure_Directory_NetplayClients(installDir);
-			DirectoryInfo gekkoCodeDstFolder = Directory.CreateDirectory(clientsFolder + "/User/GameSettings");
+            //downloads the codes
+            KWQIWebClient.Download_GekkoCodes_Windows(KWStructure.GenerateKWStructure_SubDirectory_Clients_User_GameSettings(installDir),
+            content.ContentDownloadURL_Windows, "GKYE01");
 
-			//downloads
-			WebClient w = new WebClient();
-			w.DownloadFile(content.ContentDownloadURL_Windows, $"{gekkoCodeDstFolder}\\{content.internalName}{fileExt}");
-			
-			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
+            MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
 			MainUI.instance.headerText.text = "<color=green>Download Complete!";
 		}

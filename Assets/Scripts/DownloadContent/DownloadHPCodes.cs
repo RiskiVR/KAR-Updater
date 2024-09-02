@@ -6,9 +6,8 @@ using UnityEngine;
 //downloads the latest Hack Pack Gekko Codes
 public class DownloadHPCodes : MonoBehaviour
 {
-
 	//gets the HP codes
-	static public void GetHPCodes(string installDir)
+	static public void GetHPCodes(DirectoryInfo installDir)
 	{
 		string fileExt = ".ini";
 		
@@ -26,14 +25,10 @@ public class DownloadHPCodes : MonoBehaviour
             content = KWQI.LoadKWQI(KWQIFilePath);
         }
 
-        //generates the directories as needed
-        string clientsFolder = KWStructure.GenerateKWStructure_Directory_NetplayClients(installDir);
-        DirectoryInfo gekkoCodeDstFolder = Directory.CreateDirectory(clientsFolder + "/User/GameSettings");
-
-		//downloads
-		WebClient w = new WebClient();
-		w.DownloadFile(content.ContentDownloadURL_Windows, $"{gekkoCodeDstFolder}\\{content.internalName}{fileExt}");
-	}
+        //downloads the codes
+        KWQIWebClient.Download_GekkoCodes_Windows(KWStructure.GenerateKWStructure_SubDirectory_Clients_User_GameSettings(installDir),
+        content.ContentDownloadURL_Windows, "KHPE01");
+    }
 
 	//gets the latest content
 	public void GetLatest()
@@ -41,7 +36,14 @@ public class DownloadHPCodes : MonoBehaviour
 		MainUI.instance.headerText.text = "Downloading Hack Pack Codes...";
 		try
 		{
-			string installDir = "Content";
+#if UNITY_EDITOR
+            DirectoryInfo installDir = new DirectoryInfo("C:/Users/rafal/Desktop/Boot test/KARNetplay"); //for editor
+#else
+        DirectoryInfo installDir = new DirectoryInfo(Environment.CurrentDirectory); //for standalone release
+
+#endif
+            Debug.Log(installDir.FullName);
+
 			GetHPCodes(installDir);	
 			
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);

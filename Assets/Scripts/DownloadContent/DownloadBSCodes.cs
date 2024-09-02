@@ -7,7 +7,7 @@ using UnityEngine;
 public class DownloadBSCodes : MonoBehaviour
 {
 	//gets the BS codes
-	public static void GetBSCodes(string installDir)
+	public static void GetBSCodes(DirectoryInfo installDir)
 	{
 		string fileExt = ".ini";
 		
@@ -25,25 +25,28 @@ public class DownloadBSCodes : MonoBehaviour
             content = KWQI.LoadKWQI(KWQIFilePath);
         }
 
-        //generates the directories as needed
-        string clientsFolder = KWStructure.GenerateKWStructure_Directory_NetplayClients(installDir);
-        DirectoryInfo gekkoCodeDstFolder = Directory.CreateDirectory(clientsFolder + "/User/GameSettings");
-
-		//downloads
-		WebClient w = new WebClient();
-		w.DownloadFile(content.ContentDownloadURL_Windows, $"{gekkoCodeDstFolder}\\{content.internalName}{fileExt}");
+		//downloads the codes
+		KWQIWebClient.Download_GekkoCodes_Windows(KWStructure.GenerateKWStructure_SubDirectory_Clients_User_GameSettings(installDir),
+		content.ContentDownloadURL_Windows, "KBSE01");
 	}
 
 	//gets the latest content
 	public void GetLatest()
 	{
-		MainUI.instance.headerText.text = "Downloading Backside Codes...";
+        MainUI.instance.headerText.text = "Downloading Backside Codes...";
 		try
 		{
-			string installDir = "Content";
-			GetBSCodes(installDir);
+#if UNITY_EDITOR
+            DirectoryInfo installDir = new DirectoryInfo("C:/Users/rafal/Desktop/Boot test/KARNetplay"); //for editor
+#else
+        DirectoryInfo installDir = new DirectoryInfo(Environment.CurrentDirectory); //for standalone release
 
-			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
+#endif
+            Debug.Log(installDir.FullName);
+
+            GetBSCodes(installDir);
+
+            MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
 			MainUI.instance.headerText.text = "<color=green>Download Complete!";
 		}

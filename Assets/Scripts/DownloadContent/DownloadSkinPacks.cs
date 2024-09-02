@@ -12,8 +12,12 @@ public class DownloadSkinPacks : MonoBehaviour
 		MainUI.instance.headerText.text = "Downloading Skin Packs...";
 		try
 		{
-			string installDir = "Content";
-			string fileExt = ".tar.gz";
+#if UNITY_EDITOR
+            DirectoryInfo installDir = new DirectoryInfo("C:/Users/rafal/Desktop/Boot test/KARNetplay"); //for editor
+#else
+        DirectoryInfo installDir = new DirectoryInfo(Environment.CurrentDirectory); //for standalone release
+
+#endif
 
 			//attempt to load KWQI data, if not found use a baked in URL
 			string KWQIFilePath = "KWQI/SkinPacks.KWQI";
@@ -21,7 +25,7 @@ public class DownloadSkinPacks : MonoBehaviour
 			if(!File.Exists(KWQIFilePath))
 			{
 				content.internalName = "SkinPacks";
-				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KAR-Workshop/releases/download/KWQI-Data-Dev/SkinPacks{fileExt}";
+				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KAR-Workshop/releases/download/KWQI-Data-Dev/SkinPacks_Test.br";
 				KWQI.WriteKWQI(KWStructure.GenerateKWStructure_Directory_KWQI(installDir), content.internalName, content);
 			}
 			else
@@ -29,24 +33,26 @@ public class DownloadSkinPacks : MonoBehaviour
 				content = KWQI.LoadKWQI(KWQIFilePath);
 			}
 
-			//downloads
-			WebClient w = new WebClient();
-			w.DownloadFile(content.ContentDownloadURL_Windows, $"{installDir}\\{content.internalName}{fileExt}");
+            //downloads || returns the file it downloaded
+            FileInfo archive = KWQIWebClient.Download_Archive_Windows(installDir, content.ContentDownloadURL_Windows, "SkinPacks");
+            archive.Delete();
 
-			//extracts
-			KWQIPackaging.UnpackArchive_Windows(installDir, content.internalName, true);
+            //extracts || returns the final extracted folder
+            DirectoryInfo uncompressedData = KWQIArchive.Unpack_Windows(KWStructure.GetSupportTool_Brotli_Windows(installDir), archive, installDir);
 
-			//installs the new content into the netplay client directory
-			KWQIPackaging.CopyAllDirContents(installDir + "/UncompressedPackages/" + content.internalName,
-				KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir));
-			KWQIPackaging.CopyAllDirContents(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[L] B2 Non Outline Skins",
-				KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[L] B2 Non Outline Skins");
-			KWQIPackaging.CopyAllDirContents(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[R] B2 Outline Skins",
-				KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[R] B2 Outline Skins");
-			if(Directory.Exists(installDir + "/UncompressedPackages"))
-				Directory.Delete(installDir + "/UncompressedPackages", true);
-			
-			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
+            //installs the content
+            KWInstaller.Mod_SkinPacks_AllContent(new DirectoryInfo(uncompressedData.FullName + "/UncompressedPackages/" + "SkinPacks"), installDir);
+
+
+            //installs the new content into the netplay client directory
+            KWInstaller.CopyAllDirContents(new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[L] B2 Non Outline Skins"),
+                    new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[L] B2 Non Outline Skins"));
+            KWInstaller.CopyAllDirContents(new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[R] B2 Outline Skins"),
+                new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[R] B2 Outline Skins"));
+
+            uncompressedData.Delete(true);
+
+            MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
 			MainUI.instance.headerText.text = "<color=green>Download Complete!";
 		}
