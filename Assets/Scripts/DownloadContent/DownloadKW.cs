@@ -24,7 +24,7 @@ public class DownloadKW : MonoBehaviour
 			if(!File.Exists(KWQIFilePath))
 			{
 				content.internalName = "KARWorkshop";
-				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KARphin_Modern/releases/download/kw/KARWorkshop.br";
+				content.ContentDownloadURL_Windows = $"https://github.com/SeanMott/KARphin_Modern/releases/download/kw/KARWorkshop.tar.gz.br";
 				KWQI.WriteKWQI(KWStructure.GenerateKWStructure_Directory_KWQI(installDir), content.internalName, content);
 			}
 			else
