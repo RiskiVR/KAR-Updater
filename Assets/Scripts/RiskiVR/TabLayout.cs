@@ -9,9 +9,8 @@ public class TabLayout : MonoBehaviour
     [SerializeField] string[] tabInfo;
     [SerializeField] Image[] tabImages;
     [SerializeField] GameObject[] tabs;
-    [SerializeField] InputActionReference l;
-    [SerializeField] InputActionReference r;
     public static int currentTab;
+    private bool usingController;
     public void UpdateTab(int tab)
     {
         currentTab = tab;
@@ -19,6 +18,7 @@ public class TabLayout : MonoBehaviour
         tabImages[tab].color = activeTabColor;
         foreach (GameObject g in tabs) g.SetActive(false);
         tabs[tab].SetActive(true);
+        SelectFirstButton();
         MainUI.instance.headerText.text = tabInfo[currentTab];
         MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
     }
@@ -27,11 +27,13 @@ public class TabLayout : MonoBehaviour
         InputSystem.onActionChange += InputSystem_onActionChange;
         UpdateTab(0);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && currentTab > 0) UpdateTab(currentTab - 1);
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && currentTab < tabs.Length - 1) UpdateTab(currentTab + 1);
+    }
     private void InputSystem_onActionChange(object obj, InputActionChange change)
     {
-        if (l.action.triggered) UpdateTab(currentTab + 1);
-        if (r.action.triggered) UpdateTab(currentTab - 1);
-        
         if (change == InputActionChange.ActionPerformed)
         {
             if (obj.ToString().Contains("Navigate")) UseController(true);
@@ -39,13 +41,18 @@ public class TabLayout : MonoBehaviour
         }
     }
     private void OnDestroy() => InputSystem.onActionChange -= InputSystem_onActionChange;
+
+    private void SelectFirstButton()
+    {
+        if (usingController) EventSystem.current.SetSelectedGameObject(tabs[currentTab].transform.GetChild(0).transform.GetChild(0).gameObject);
+    }
     private void UseController(bool ctrl)
     {
         Cursor.visible = !ctrl;
+        usingController = ctrl;
         if (ctrl)
         {
-            if (EventSystem.current.currentSelectedGameObject == null)
-                EventSystem.current.SetSelectedGameObject(tabs[currentTab].transform.GetChild(0).transform.GetChild(0).gameObject);
+            if (EventSystem.current.currentSelectedGameObject == null) SelectFirstButton();
         }
         else EventSystem.current.SetSelectedGameObject(null);
         foreach (Button b in tabs[currentTab].GetComponentsInChildren<Button>())
