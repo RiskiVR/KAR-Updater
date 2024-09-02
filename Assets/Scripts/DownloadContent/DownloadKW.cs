@@ -32,18 +32,8 @@ public class DownloadKW : MonoBehaviour
 				content = KWQI.LoadKWQI(KWQIFilePath);
 			}
 
-            //downloads || returns the file it downloaded
-            FileInfo archive = KWQIWebClient.Download_Archive_Windows(installDir, content.ContentDownloadURL_Windows, "KARWorkshop");
-
-            //extracts || returns the final extracted folder
-            DirectoryInfo uncompressedData = KWQIArchive.Unpack_Windows(KWStructure.GetSupportTool_Brotli_Windows(installDir), archive, installDir);
-
-            //installs the content
-            KWInstaller.Root_AllContent(new DirectoryInfo(uncompressedData.FullName + "/UncompressedPackages/" + "KARWorkshop"), installDir);
-
-            //deletes the uncompressed and packaged data
-            uncompressedData.Delete(true);
-            archive.Delete();
+			//downloads
+			KWQICommonInstalls.GetLatest_KARWorkshop(KWStructure.GetSupportTool_Brotli_Windows(installDir), installDir);
 
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);

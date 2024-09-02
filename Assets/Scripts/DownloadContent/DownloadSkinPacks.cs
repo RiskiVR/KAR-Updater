@@ -33,24 +33,15 @@ public class DownloadSkinPacks : MonoBehaviour
 				content = KWQI.LoadKWQI(KWQIFilePath);
 			}
 
-            //downloads || returns the file it downloaded
-            FileInfo archive = KWQIWebClient.Download_Archive_Windows(installDir, content.ContentDownloadURL_Windows, "SkinPacks");
-            archive.Delete();
-
-            //extracts || returns the final extracted folder
-            DirectoryInfo uncompressedData = KWQIArchive.Unpack_Windows(KWStructure.GetSupportTool_Brotli_Windows(installDir), archive, installDir);
-
-            //installs the content
-            KWInstaller.Mod_SkinPacks_AllContent(new DirectoryInfo(uncompressedData.FullName + "/UncompressedPackages/" + "SkinPacks"), installDir);
-
+			//downloads
+			DirectoryInfo skinPackDir = KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir);
+            KWQICommonInstalls.GetLatest_KARDont(KWStructure.GetSupportTool_Brotli_Windows(installDir), skinPackDir);
 
             //installs the new content into the netplay client directory
-            KWInstaller.CopyAllDirContents(new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[L] B2 Non Outline Skins"),
-                    new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[L] B2 Non Outline Skins"));
-            KWInstaller.CopyAllDirContents(new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir) + "/[R] B2 Outline Skins"),
-                new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/[R] B2 Outline Skins"));
-
-            uncompressedData.Delete(true);
+            KWInstaller.CopyAllDirContents(new DirectoryInfo(skinPackDir + "/[L] B2 Non Outline Skins"),
+                    new DirectoryInfo(skinPackDir + "/Load/Textures/KBSE01/[L] B2 Non Outline Skins"));
+            KWInstaller.CopyAllDirContents(new DirectoryInfo(skinPackDir + "/[R] B2 Outline Skins"),
+                new DirectoryInfo(skinPackDir + "/Load/Textures/KBSE01/[R] B2 Outline Skins"));
 
             MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
