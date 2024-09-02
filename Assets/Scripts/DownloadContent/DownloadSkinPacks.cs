@@ -35,13 +35,15 @@ public class DownloadSkinPacks : MonoBehaviour
 
 			//downloads
 			DirectoryInfo skinPackDir = KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir);
-            KWQICommonInstalls.GetLatest_KARDont(KWStructure.GetSupportTool_Brotli_Windows(installDir), skinPackDir);
+            KWQICommonInstalls.GetLatest_SkinPacks(KWStructure.GetSupportTool_Brotli_Windows(installDir), skinPackDir);
 
-            //installs the new content into the netplay client directory
+			//installs the new content into the netplay client directory
+			DirectoryInfo user = new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/");
+
             KWInstaller.CopyAllDirContents(new DirectoryInfo(skinPackDir + "/[L] B2 Non Outline Skins"),
-                    new DirectoryInfo(skinPackDir + "/Load/Textures/KBSE01/[L] B2 Non Outline Skins"));
+                    new DirectoryInfo(user + "[L] B2 Non Outline Skins"));
             KWInstaller.CopyAllDirContents(new DirectoryInfo(skinPackDir + "/[R] B2 Outline Skins"),
-                new DirectoryInfo(skinPackDir + "/Load/Textures/KBSE01/[R] B2 Outline Skins"));
+                new DirectoryInfo(user + "[R] B2 Outline Skins"));
 
             MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);

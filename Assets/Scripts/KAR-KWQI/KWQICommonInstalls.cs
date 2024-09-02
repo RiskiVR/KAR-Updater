@@ -150,12 +150,12 @@ class KWQICommonInstalls
         uncompressed = new DirectoryInfo(uncompressed.FullName + "/KARDont");
 
         //moves the contents into the target directory
-        KWInstaller.CopyAllDirContents(uncompressed, new DirectoryInfo(installTarget + "/KARDont"));
+        //KWInstaller.CopyAllDirContents(uncompressed, new DirectoryInfo(installTarget + "/KARDont"));
 
         //clean up
         archive.Delete();
         tar.Delete();
-        uncompressed.Delete(true);
+       // uncompressed.Delete(true);
 
         return true;
     }
