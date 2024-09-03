@@ -23,7 +23,7 @@ public class MainUI : MonoBehaviour
     {
         allSelectables = FindObjectsOfType<Selectable>(true);
 
-        for(int i = 0; i < allSelectables.Length; i++)
+        for (int i = 0; i < allSelectables.Length; i++)
         {
             var trigger = allSelectables[i].gameObject.AddComponent<EventTrigger>();
             var entry = new EventTrigger.Entry();

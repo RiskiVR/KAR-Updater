@@ -18,9 +18,9 @@ public class TabLayout : MonoBehaviour
         tabImages[tab].color = activeTabColor;
         foreach (GameObject g in tabs) g.SetActive(false);
         tabs[tab].SetActive(true);
-        SelectFirstButton();
         MainUI.instance.headerText.text = tabInfo[currentTab];
         MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);
+        if (usingController) SelectFirstButton();
     }
     private void Start()
     {
@@ -41,11 +41,7 @@ public class TabLayout : MonoBehaviour
         }
     }
     private void OnDestroy() => InputSystem.onActionChange -= InputSystem_onActionChange;
-
-    private void SelectFirstButton()
-    {
-        if (usingController) EventSystem.current.SetSelectedGameObject(tabs[currentTab].transform.GetChild(0).transform.GetChild(0).gameObject);
-    }
+    private void SelectFirstButton() => EventSystem.current.SetSelectedGameObject(tabs[currentTab].transform.GetChild(0).transform.GetChild(0).gameObject);
     private void UseController(bool ctrl)
     {
         Cursor.visible = !ctrl;
