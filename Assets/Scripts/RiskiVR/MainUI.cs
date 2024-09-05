@@ -2,9 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
@@ -13,24 +11,9 @@ public class MainUI : MonoBehaviour
     public TextMeshProUGUI headerText;
     public AudioSource audioSource;
     public AudioClip[] menu;
-    private Selectable[] allSelectables;
-    void Awake()
-    { 
-        instance = this;
-        Screen.SetResolution(1037, 961, false);
-    }
-    private void Start()
+    private void Awake()
     {
-        allSelectables = FindObjectsOfType<Selectable>(true);
-
-        for (int i = 0; i < allSelectables.Length; i++)
-        {
-            var trigger = allSelectables[i].gameObject.AddComponent<EventTrigger>();
-            var entry = new EventTrigger.Entry();
-            entry.eventID = EventTriggerType.Select;
-            entry.callback.AddListener((eventData) => { audioSource.PlayOneShot(menu[3]); });
-            trigger.triggers.Add(entry);
-        }
+        instance = this;
     }
     public void SwitchScene(int sceneIndex) => SceneManager.LoadScene(sceneIndex);
 }

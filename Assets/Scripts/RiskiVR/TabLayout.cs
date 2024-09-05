@@ -10,7 +10,7 @@ public class TabLayout : MonoBehaviour
     [SerializeField] Image[] tabImages;
     [SerializeField] GameObject[] tabs;
     public static int currentTab;
-    private bool usingController;
+    public static bool usingController;
     public void UpdateTab(int tab)
     {
         currentTab = tab;

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Padding: {x: -1, y: -1, z: -1, w: -1}
   m_Softness: {x: 0, y: 0}
 --- !u!1 &52571024
 GameObject:
@@ -785,9 +785,9 @@ GameObject:
   m_Component:
   - component: {fileID: 384387890}
   - component: {fileID: 384387894}
+  - component: {fileID: 384387895}
   - component: {fileID: 384387893}
   - component: {fileID: 384387892}
-  - component: {fileID: 384387891}
   m_Layer: 5
   m_Name: Button - HSDRaw
   m_TagString: Untagged
@@ -815,47 +815,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &384387891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384387889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Currently not implemented.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &384387892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +921,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384387889}
   m_CullTransparentMesh: 1
+--- !u!114 &384387895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384387889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Currently not implemented.
 --- !u!1 &389646843
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,9 +944,9 @@ GameObject:
   m_Component:
   - component: {fileID: 389646844}
   - component: {fileID: 389646848}
+  - component: {fileID: 389646849}
   - component: {fileID: 389646847}
   - component: {fileID: 389646846}
-  - component: {fileID: 389646845}
   m_Layer: 5
   m_Name: Button - JP KAR Codes
   m_TagString: Untagged
@@ -1002,47 +974,6 @@ RectTransform:
   m_AnchoredPosition: {x: 669.5, y: -193}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &389646845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389646843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Downloads Japanese Gekko Codes for KAR.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &389646846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,6 +1080,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389646843}
   m_CullTransparentMesh: 1
+--- !u!114 &389646849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389646843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download Japanese Gekko Codes for KAR.
 --- !u!1 &391336793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,9 +1237,9 @@ GameObject:
   m_Component:
   - component: {fileID: 433601341}
   - component: {fileID: 433601345}
+  - component: {fileID: 433601346}
   - component: {fileID: 433601344}
   - component: {fileID: 433601343}
-  - component: {fileID: 433601342}
   m_Layer: 5
   m_Name: Button - KAR Workshop
   m_TagString: Untagged
@@ -1323,47 +1267,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.49997, y: -56.00003}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &433601342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433601340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Updates KAR Workshop.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &433601343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,6 +1373,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433601340}
   m_CullTransparentMesh: 1
+--- !u!114 &433601346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433601340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Updates KAR Workshop.
 --- !u!1 &440301666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1708,7 @@ RectTransform:
   m_GameObject: {fileID: 482372894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 433601341}
@@ -1982,6 +1898,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2063,6 +1980,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74fb9632ac6f534292569209cd66763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  allowFullscreen: 0
+  aspectRatioWidth: 4
+  aspectRatioHeight: 3
+  minWidthPixel: 512
+  minHeightPixel: 512
+  maxWidthPixel: 2048
+  maxHeightPixel: 2048
 --- !u!1 &523009082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,9 +2202,9 @@ GameObject:
   m_Component:
   - component: {fileID: 671169384}
   - component: {fileID: 671169388}
+  - component: {fileID: 671169389}
   - component: {fileID: 671169387}
   - component: {fileID: 671169386}
-  - component: {fileID: 671169385}
   m_Layer: 5
   m_Name: Button - NA KAR Codes
   m_TagString: Untagged
@@ -2293,47 +2232,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.5, y: -193}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &671169385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671169383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Downloads North American Gekko Codes for KAR.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &671169386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2440,6 +2338,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671169383}
   m_CullTransparentMesh: 1
+--- !u!114 &671169389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671169383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download North American Gekko Codes for KAR.
 --- !u!1 &675687404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2378,7 @@ RectTransform:
   m_GameObject: {fileID: 675687404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1883953815}
@@ -2795,9 +2706,9 @@ GameObject:
   m_Component:
   - component: {fileID: 865175403}
   - component: {fileID: 865175407}
+  - component: {fileID: 865175408}
   - component: {fileID: 865175406}
   - component: {fileID: 865175405}
-  - component: {fileID: 865175404}
   m_Layer: 5
   m_Name: Button - KARDon't
   m_TagString: Untagged
@@ -2825,35 +2736,6 @@ RectTransform:
   m_AnchoredPosition: {x: 669.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &865175404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865175402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &865175405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2960,6 +2842,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865175402}
   m_CullTransparentMesh: 1
+--- !u!114 &865175408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865175402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download KARDon't.
 --- !u!1 &928731605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,9 +3478,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1419541667}
   - component: {fileID: 1419541671}
+  - component: {fileID: 1419541672}
   - component: {fileID: 1419541670}
   - component: {fileID: 1419541669}
-  - component: {fileID: 1419541668}
   m_Layer: 5
   m_Name: Button - Blender Add-ons
   m_TagString: Untagged
@@ -3613,47 +3508,6 @@ RectTransform:
   m_AnchoredPosition: {x: 669.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1419541668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419541666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Currently not implemented.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1419541669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3760,6 +3614,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419541666}
   m_CullTransparentMesh: 1
+--- !u!114 &1419541672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419541666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Currently not implemented.
 --- !u!1 &1470430581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,6 +3728,7 @@ RectTransform:
   - {fileID: 1780676300}
   - {fileID: 1784655413}
   - {fileID: 1783900324}
+  - {fileID: 1653478939}
   m_Father: {fileID: 1944976052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3928,6 +3796,153 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601493338}
   m_CullTransparentMesh: 1
+--- !u!1 &1653478938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653478939}
+  - component: {fileID: 1653478942}
+  - component: {fileID: 1653478941}
+  - component: {fileID: 1653478940}
+  m_Layer: 5
+  m_Name: Version
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1653478939
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653478938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1601493339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -10, y: 55}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1653478940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653478938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 62ee80aa147ad2245bd65a0bf2bfe3ac, type: 2}
+  m_sharedMaterial: {fileID: -4868468652391006722, guid: 62ee80aa147ad2245bd65a0bf2bfe3ac, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 1342177280
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.3137255}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1653478941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653478938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a29210b40dabd4fb47c4163532f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &1653478942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653478938}
+  m_CullTransparentMesh: 1
 --- !u!1 &1700233236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,9 +3953,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1700233237}
   - component: {fileID: 1700233241}
+  - component: {fileID: 1700233242}
   - component: {fileID: 1700233240}
   - component: {fileID: 1700233239}
-  - component: {fileID: 1700233238}
   m_Layer: 5
   m_Name: Button - Hack Pack Codes
   m_TagString: Untagged
@@ -3968,47 +3983,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1700233238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700233236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Downloads Hack Pack Codes.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1700233239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4115,6 +4089,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700233236}
   m_CullTransparentMesh: 1
+--- !u!114 &1700233242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700233236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download Hack Pack Codes.
 --- !u!1 &1780676299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4257,8 +4244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 160}
-  m_SizeDelta: {x: 600, y: 150}
+  m_AnchoredPosition: {x: 0, y: 190}
+  m_SizeDelta: {x: 700, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796556100
 MonoBehaviour:
@@ -4307,12 +4294,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37
+  m_fontSize: 42
   m_fontSizeBase: 37
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 37
+  m_fontSizeMax: 42
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -4384,7 +4371,7 @@ RectTransform:
   m_GameObject: {fileID: 1811507295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1700233237}
@@ -4396,7 +4383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 876, y: 249}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1811507297
 MonoBehaviour:
@@ -4580,9 +4567,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1883953815}
   - component: {fileID: 1883953819}
+  - component: {fileID: 1883953820}
   - component: {fileID: 1883953818}
   - component: {fileID: 1883953817}
-  - component: {fileID: 1883953816}
   m_Layer: 5
   m_Name: Button - Skin Packs
   m_TagString: Untagged
@@ -4610,35 +4597,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1883953816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883953814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1883953817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4745,6 +4703,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883953814}
   m_CullTransparentMesh: 1
+--- !u!114 &1883953820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883953814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download Skin Packs.
 --- !u!1 &1944976048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,7 +4768,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1000, y: 800}
+  m_ReferenceResolution: {x: 1280, y: 960}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5006,9 +4977,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2129153976}
   - component: {fileID: 2129153980}
+  - component: {fileID: 2129153981}
   - component: {fileID: 2129153979}
   - component: {fileID: 2129153978}
-  - component: {fileID: 2129153977}
   m_Layer: 5
   m_Name: Button - Backside Codes
   m_TagString: Untagged
@@ -5036,47 +5007,6 @@ RectTransform:
   m_AnchoredPosition: {x: 669.5, y: -56}
   m_SizeDelta: {x: 413, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2129153977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129153975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 483415455}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 19691e8fe5ab86a448530fd31ab10e4b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1796556100}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Downloads Backside Codes.
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &2129153978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5183,6 +5113,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129153975}
   m_CullTransparentMesh: 1
+--- !u!114 &2129153981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129153975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: Download Backside Codes.
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
