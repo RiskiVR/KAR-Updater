@@ -431,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KAR Workshop
+  m_text: KAR Launcher
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62ee80aa147ad2245bd65a0bf2bfe3ac, type: 2}
   m_sharedMaterial: {fileID: -4868468652391006722, guid: 62ee80aa147ad2245bd65a0bf2bfe3ac, type: 2}
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 433601344}
   - component: {fileID: 433601343}
   m_Layer: 5
-  m_Name: Button - KAR Workshop
+  m_Name: Button - KAR Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: Updates KAR Workshop.
+  info: Update KAR Launcher.
 --- !u!1 &440301666
 GameObject:
   m_ObjectHideFlags: 0
