@@ -34,7 +34,7 @@ public class DownloadKARDont : MonoBehaviour
 			}
 
             //downloads
-            KWQICommonInstalls.GetLatest_KARDont(KWStructure.GetSupportTool_Brotli_Windows(installDir), KWStructure.GenerateKWStructure_SubDirectory_Mod_Hombrew(installDir));
+            KWQICommonInstalls.GetLatest_KARDont(KWStructure.GenerateKWStructure_SubDirectory_Mod_Hombrew(installDir));
 
             MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[6]);
 			MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[2]);

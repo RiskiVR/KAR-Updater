@@ -35,7 +35,7 @@ public class DownloadSkinPacks : MonoBehaviour
 
 			//downloads
 			DirectoryInfo skinPackDir = KWStructure.GenerateKWStructure_SubDirectory_Mod_SkinPacks(installDir);
-            KWQICommonInstalls.GetLatest_SkinPacks(KWStructure.GetSupportTool_Brotli_Windows(installDir), skinPackDir);
+            KWQICommonInstalls.GetLatest_SkinPacks(skinPackDir);
 
 			//installs the new content into the netplay client directory
 			DirectoryInfo user = new DirectoryInfo(KWStructure.GenerateKWStructure_SubDirectory_Clients_User(installDir) + "/Load/Textures/KBSE01/");
