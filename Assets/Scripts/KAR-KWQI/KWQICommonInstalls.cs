@@ -227,7 +227,7 @@ class KWQICommonInstalls
     }
 
     //installs the latest Tools
-    public static bool GetLatest_Tools(FileInfo brotliEXE, DirectoryInfo installTarget)
+    public static bool GetLatest_Tools(DirectoryInfo installTarget)
     {
         //downloads the latest KARphin
         FileInfo archive = KWQIWebClient.Download_Archive_Windows(installTarget,
