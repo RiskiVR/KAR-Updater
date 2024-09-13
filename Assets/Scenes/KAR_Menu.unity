@@ -871,7 +871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 440301675}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DownloadKARphin, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: Download Japanese Gekko Codes for KAR.
+  info: Download Japanese Gecko Codes for KAR.
 --- !u!1 &391336793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,8 +1323,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 440301674}
-        m_TargetAssemblyTypeName: DownloadKW, Assembly-CSharp
+      - m_Target: {fileID: 440301677}
+        m_TargetAssemblyTypeName: DownloadLauncher, Assembly-CSharp
         m_MethodName: GetLatest
         m_Mode: 1
         m_Arguments:
@@ -1399,12 +1399,10 @@ GameObject:
   - component: {fileID: 440301673}
   - component: {fileID: 440301670}
   - component: {fileID: 440301668}
-  - component: {fileID: 440301675}
-  - component: {fileID: 440301667}
   - component: {fileID: 440301674}
+  - component: {fileID: 440301677}
   - component: {fileID: 440301671}
   - component: {fileID: 440301669}
-  - component: {fileID: 440301677}
   m_Layer: 0
   m_Name: Downloads
   m_TagString: Untagged
@@ -1412,18 +1410,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &440301667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440301666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2efb5cc0c7ef541883152c66b79253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &440301668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,18 +1494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1ff305e9aa99f46ab8d895bc8dead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &440301675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440301666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c03873260faff4aa50a86825c546eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &440301676
 Transform:
   m_ObjectHideFlags: 0
@@ -1544,7 +1518,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 440301666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db7e56e08949164c8ac51a59f093fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: c94fa75df53fb7e4788a02306cfb7a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &473505864
@@ -2350,7 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a17b9b89df57545afceaef492fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: Download North American Gekko Codes for KAR.
+  info: Download North American Gecko Codes for KAR.
 --- !u!1 &675687404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e150b3bd7a62b8479341fce4545354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicRaycaster: {fileID: 1944976049}
   headerText: {fileID: 1796556100}
   audioSource: {fileID: 483415455}
   menu:
@@ -3881,8 +3856,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

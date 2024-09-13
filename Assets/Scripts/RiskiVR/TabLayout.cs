@@ -11,6 +11,10 @@ public class TabLayout : MonoBehaviour
     [SerializeField] GameObject[] tabs;
     public static int currentTab;
     public static bool usingController;
+    public void OnApplicationFocus(bool hasFocus)
+    {
+        if (!usingController) MainUI.instance.graphicRaycaster.enabled = hasFocus;
+    }
     public void UpdateTab(int tab)
     {
         currentTab = tab;
@@ -44,6 +48,9 @@ public class TabLayout : MonoBehaviour
     private void SelectFirstButton() => EventSystem.current.SetSelectedGameObject(tabs[currentTab].transform.GetChild(0).transform.GetChild(0).gameObject);
     private void UseController(bool ctrl)
     {
+        if (!Application.isFocused) return;
+        
+        MainUI.instance.graphicRaycaster.enabled = !ctrl;
         Cursor.visible = !ctrl;
         usingController = ctrl;
         if (ctrl)

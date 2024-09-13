@@ -177,7 +177,6 @@ class KWQICommonInstalls
     //installs the latest KAR Updater
     public static void GetLatest_KARUpdater()
     {
-        //downloads the latest KARphin
         using (WebClient client = new WebClient())
         {
             try
@@ -186,10 +185,10 @@ class KWQICommonInstalls
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(ex.ToString());
-               // UnityEngine.Debug.LogError(ex);
-               // MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[4]);
-              //  MainUI.MessageUI.MessageBox(IntPtr.Zero, ex.ToString(), "Download Failed!", 0);
+                Console.WriteLine(ex.ToString());
+                UnityEngine.Debug.LogError(ex);
+                MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[4]);
+                MessageUI.MessageBox(IntPtr.Zero, ex.ToString(), "Download Failed!", 0);
             }
         }
         
@@ -224,6 +223,31 @@ class KWQICommonInstalls
         uncompressed.Delete(true);
 
         return true;
+    }
+
+    //installs the latest KAR Launcher
+    public static void GetLatest_KARLauncher()
+    {
+        using (WebClient client = new WebClient())
+        {
+            try
+            {
+                client.DownloadFile("https://github.com/RiskiVR/KAR-Launcher/releases/latest/download/UpdateFiles.zip", "KARLauncher");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                UnityEngine.Debug.LogError(ex);
+                MainUI.instance.audioSource.PlayOneShot(MainUI.instance.menu[4]);
+                MessageUI.MessageBox(IntPtr.Zero, ex.ToString(), "Download Failed!", 0);
+            }
+            
+            //uncompresses it
+            ZipFile.ExtractToDirectory("KARLauncher", Directory.GetCurrentDirectory());
+
+            //clean up
+            File.Delete("KARLauncher");
+        }
     }
 
     //installs the latest Tools

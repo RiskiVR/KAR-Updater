@@ -3,11 +3,16 @@ using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
-    [Header("Internal Elements")]
     public static MainUI instance;
+    
+    [Header("Canvas")]
+    public GraphicRaycaster graphicRaycaster;
+    
+    [Header("Internal Elements")]
     public TextMeshProUGUI headerText;
     public AudioSource audioSource;
     public AudioClip[] menu;
